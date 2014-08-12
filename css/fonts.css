@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Crafty Girls';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Crafty Girls'), local('CraftyGirls'), url(./../font/CraftyGirls.woff) format('woff');
+}
+@font-face {
+  font-family: 'Handlee';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Handlee Regular'), local('Handlee-Regular'), url(./../font/Handlee.woff) format('woff');
+}
+@font-face {
+  font-family: 'Permanent Marker';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Permanent Marker'), local('PermanentMarker'), url(./../font/PermanentMarker.woff) format('woff');
+}
