@@ -2,6 +2,8 @@ define(
         "inc/SyncLock",
         [],
         function(){
+            
+            //Möglicherweise nutzlos
             function SyncLock(){
     
                 this.lockCount = 0;
