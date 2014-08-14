@@ -2,8 +2,9 @@
 //Main Script
 
 require([
-	"libs/external/jquery-2.1.1.min",
-	"js/inc/engine.js"],  //Warum braucht man für jQuery einen anderen relativen Pfad?
+	"libs/jquery-2.1.1.min",
+	"libs/svg",
+	"inc/engine"],
 	function(){ 
 
     var game = new Engine();
