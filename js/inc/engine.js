@@ -17,6 +17,15 @@ function Engine(){
     };
     
     this.initUI = function(){
-        $('body').append('Geladen, wow!');
+        this.loadScene('screens/start.htm');
     };
+
+    this.loadScene = function(path){
+        $('body').empty();
+        this.loadHTML(path,'body');
+    }
+    
+    this.loadHTML = function(path,target){
+        $(target).load('html/'+path);
+    }
 };
