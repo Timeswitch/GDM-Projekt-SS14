@@ -4,7 +4,7 @@
 require([
 	"libs/jquery-2.1.1.min",
 	"libs/svg",
-	"inc/engine"],
+	"inc/Engine"],
 	function(){ 
 
     var game = new Engine();
