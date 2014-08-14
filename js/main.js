@@ -1,6 +1,8 @@
 
 //Main Script
 
+var debug = true; //Regelt Debugausgabe
+
 require([
 	"libs/jquery-2.1.1.min",
 	"libs/svg",

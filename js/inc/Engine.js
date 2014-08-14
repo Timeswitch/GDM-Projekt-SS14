@@ -1,37 +1,49 @@
 
 define(
         "inc/Engine",
-        ["inc/SyncLock"],
-        function(SyncLock){
+        [],
+        function(){
             
             //Spiel Engine
             function Engine() {
 
-                this.sync = new SyncLock();
+                this.initLevel = 0;
 
                 this.init = function() {
                     var self = this;
 
-                    $('body').children().fadeOut({
-                        duration: 'slow',
-                        complete: function() {
-                            $('link[href="css/loading.css"]').remove();
-                            self.initUI();
-                        }
-                    });
+                    switch(this.initLevel){
+                        case 0:
+                            this.initLevel++;
+                            $('body').children().fadeOut({
+                                duration: 'slow',
+                                complete: function() {
+                                    $('link[href="css/loading.css"]').remove();
+                                    self.init();
+                                }
+                            });
+                            break;
+                        case 1:
+                            this.initLevel++;
+                            this.loadScene('screens/start.htm',this.init.bind(this));
+                            break;
+                    }
+                    
                 };
 
-                this.initUI = function() {
-                    this.loadScene('screens/start.htm');
-                };
-
-                this.loadScene = function(path) {
+                this.loadScene = function(path,callback) {
                     $('body').empty();
-                    this.loadHTML(path, 'body');
+                    this.loadHTML(path, 'body', callback);
                 }
 
-                this.loadHTML = function(path, target) {
-                    $(target).load('html/' + path);
+                this.loadHTML = function(path, target, callback) {
+              
+                    $(target).load('html/' + path, function(){
+                       
+                        if(callback != 'undefined'){
+                            callback();
+                        }
+                    });
                 }
             }
             

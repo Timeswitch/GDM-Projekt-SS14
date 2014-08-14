@@ -9,11 +9,17 @@ define(
                 this.lockCount = 0;
 
                 this.lock = function(){
+                    if(debug){
+                        console.log("lock");
+                    }
                     this.lockCount++;
                 }
 
                 this.unlock = function(){
                     if(this.lockCount > 0){
+                        if(debug){
+                            console.log("unlock");
+                        }
                         this.lockCount--;
                     }else{
                         throw "Warnung: Instabiler Sync!";
@@ -21,7 +27,7 @@ define(
                 }
 
                 this.isLocked = function(){
-                    return this.lockCount > 0
+                    return this.lockCount > 0;
                 }
 
             }
