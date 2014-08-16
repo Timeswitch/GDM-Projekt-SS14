@@ -60,8 +60,8 @@ define(
                         }
 
                         require(req, function() {
-                            if (callback != 'undefined') {
-                                callback();
+                            if (typeof(callback) !== 'undefined') {
+                                callback.apply(this,arguments);
                             }
                         });
 
