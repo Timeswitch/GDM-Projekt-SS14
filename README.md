@@ -1,7 +1,7 @@
 GDM-Projekt-SS14
 ================
 
-#Anwendung
+##Anwendung
 
 Im Require.js Callback von main.js
 
@@ -19,7 +19,7 @@ game.init(function(){
 `Engine.init()` wird hier ein Callback übergeben um einen Alert auszugeben, wenn alle grundlegenden Daten geladen wurden.
 Standardmäßig wird von von `Engine.init()` /html/screens/start.htm geladen.
 
-#Screens und weitere HTML Dateien
+##Screens und weitere HTML Dateien
 
 Mit `Engine.loadScene()` bzw. mit `Engine.loadHTML()` können HTML Inhalte, sowie JavaScript und CSS Dateien nachgeladen werden.
 
