@@ -1,0 +1,23 @@
+/* 
+    Created on : 13-Aug-2014, 22:36:29
+    Author     : Michael Kroll
+*/
+
+html, body{
+    background-color: #555555;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wait-text{
+    color: #ffffff;
+    font-family: 'Permanent Marker';
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 5em;
+    line-height: 5em;
+}
