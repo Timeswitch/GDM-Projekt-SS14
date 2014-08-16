@@ -33,5 +33,3 @@ JavaScript und CSS Dateien zum nachladen können in den .htm Dateien unter /html
 <req type="text/javascript" src="test">
 
 ```
-
-src ist hier relativ zu /js bzw /css

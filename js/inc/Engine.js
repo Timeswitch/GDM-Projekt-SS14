@@ -1,14 +1,16 @@
 
 define(
         "inc/Engine",
-        [],
-        function() {
+        ["inc/CSSManager"],
+        function(CSSManager) {
 
             //Spiel Engine
             function Engine() {
 
                 this.initLevel = 0;
                 this.initCallback = null;
+                
+                this.cm = new CSSManager();
 
                 this.init = function(callback) {
                     var self = this;
@@ -45,7 +47,9 @@ define(
                 };
 
                 this.loadHTML = function(path, target, callback) {
-
+                    
+                    var self = this;
+                    
                     $(target).load('html/' + path, function() {
 
                         var requirements = [];
@@ -59,10 +63,10 @@ define(
 
                         var js = [];
                         for (var i = 0; i < requirements.length; i++) {
-                            if (requirements[i].type == 'text/javascript') {
+                            if (requirements[i].type === 'text/javascript') {
                                 js.push(requirements[i].src);
-                            } else if (requirements[i].type == 'text/css') {
-                                console.log('TO-DO CSS Loader');
+                            } else if (requirements[i].type === 'text/css') {
+                                self.cm.load(requirements[i].src);
                             }
 
                         }
@@ -71,7 +75,7 @@ define(
                             if (typeof(callback) !== 'undefined') {
                                 //var args = Array.prototype.slice.call(arguments);
                                 //args.unshift(js);
-                                callback.apply(this,arguments);
+                                callback.apply(self,arguments);
                             }
                         });
 
