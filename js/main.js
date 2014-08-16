@@ -10,7 +10,10 @@ require([
 	function(jq,svg,Engine){ 
 
             var game = new Engine();
-            game.init();
+            
+            game.init(function(){
+                alert("success!");
+            });
     
 });
 

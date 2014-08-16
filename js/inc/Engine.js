@@ -8,13 +8,15 @@ define(
             function Engine() {
 
                 this.initLevel = 0;
+                this.initCallback = null;
 
-                this.init = function() {
+                this.init = function(callback) {
                     var self = this;
 
                     switch (this.initLevel) {
                         case 0:
                             this.initLevel++;
+                            this.initCallback = callback;
                             $('body').children().fadeOut({
                                 duration: 'slow',
                                 complete: function() {
@@ -27,6 +29,12 @@ define(
                             this.initLevel++;
                             this.loadScene('screens/start.htm', this.init.bind(this));
                             break;
+                        case 2:
+                            this.initLevel++;
+                            if(typeof(this.initCallback) !== 'undefined' && this.initCallback !== null){
+                                this.initCallback();
+                            }
+                            break;
                     }
 
                 };
@@ -34,7 +42,7 @@ define(
                 this.loadScene = function(path, callback) {
                     $('body').empty();
                     this.loadHTML(path, 'body', callback);
-                }
+                };
 
                 this.loadHTML = function(path, target, callback) {
 
@@ -49,25 +57,28 @@ define(
                             });
                         });
 
-                        var req = [];
+                        var js = [];
                         for (var i = 0; i < requirements.length; i++) {
                             if (requirements[i].type == 'text/javascript') {
-                                req.push(requirements[i].src);
+                                js.push(requirements[i].src);
                             } else if (requirements[i].type == 'text/css') {
                                 console.log('TO-DO CSS Loader');
                             }
 
                         }
 
-                        require(req, function() {
+                        require(js, function() {
                             if (typeof(callback) !== 'undefined') {
+                                //var args = Array.prototype.slice.call(arguments);
+                                //args.unshift(js);
                                 callback.apply(this,arguments);
                             }
                         });
 
 
                     });
-                }
+                };
+                
             }
 
             return Engine;
