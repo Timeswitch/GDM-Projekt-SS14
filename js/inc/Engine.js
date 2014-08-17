@@ -54,10 +54,10 @@ define(
 
                         var requirements = [];
 
-                        $(this).find('req').each(function() {
+                        $(this).find('input[content]').each(function() {
                             requirements.push({
-                                src: $(this).attr('src'),
-                                type: $(this).attr('type')
+                                src: $(this).attr('content'),
+                                type: $(this).attr('value')
                             });
                         });
 

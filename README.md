@@ -13,7 +13,6 @@ game.init(function(){
     alert("success!");
 });
 
-
 ```
 
 `Engine.init()` wird hier ein Callback übergeben um einen Alert auszugeben, wenn alle grundlegenden Daten geladen wurden.
@@ -30,6 +29,6 @@ JavaScript und CSS Dateien zum nachladen können in den .htm Dateien unter /html
 
 ```html
 
-<req type="text/javascript" src="test">
+<input type="hidden" content="text/javascript" value="test" />
 
 ```
