@@ -56,8 +56,8 @@ define(
 
                         $(this).find('input[content]').each(function() {
                             requirements.push({
-                                src: $(this).attr('content'),
-                                type: $(this).attr('value')
+                                src: $(this).attr('value'),
+                                type: $(this).attr('content')
                             });
                         });
 
