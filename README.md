@@ -33,6 +33,8 @@ JavaScript und CSS Dateien zum nachladen können in den .htm Dateien unter /html
 
 ```
 
+Die Pfadangabe ist hierbei relativ zu `/js` bzw. `/css`.
+
 Die angeforderten JavaScript Dateien werden mit Require.js geladen.
 Sollten Module definiert sein, werden diese dem Callback als Parameter übergeben.
 
@@ -50,7 +52,6 @@ Sollten Module definiert sein, werden diese dem Callback als Parameter übergebe
 `/js/inc/Beispiel.js`
 ```javascript
 define(
-        ["require"],
         function(require){
             function Beispiel(test){
                 this.test = test;

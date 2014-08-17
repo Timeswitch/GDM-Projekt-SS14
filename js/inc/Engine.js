@@ -64,9 +64,12 @@ define(
                         var js = [];
                         for (var i = 0; i < requirements.length; i++) {
                             if (requirements[i].type === 'text/javascript') {
+                                if(requirements[i].src.indexOf(".js",requirements[i].src.length - ".js".length) !== 1){
+                                    requirements[i].src = requirements[i].src.slice(0,-3);
+                                }
                                 js.push(requirements[i].src);
                             } else if (requirements[i].type === 'text/css') {
-                                self.cm.load(requirements[i].src);
+                                self.cm.load('./css/'+requirements[i].src);
                             }
 
                         }
