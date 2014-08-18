@@ -1,8 +1,11 @@
 
 define(
         "inc/Engine",
-        ["inc/CSSManager"],
-        function(CSSManager) {
+        [
+            "jquery",
+            "inc/CSSManager"
+        ],
+        function($,CSSManager) {
 
             //Spiel Engine
             function Engine() {
@@ -54,19 +57,22 @@ define(
 
                         var requirements = [];
 
-                        $(this).find('req').each(function() {
+                        $(this).find('input[content]').each(function() {
                             requirements.push({
-                                src: $(this).attr('src'),
-                                type: $(this).attr('type')
+                                src: $(this).attr('value'),
+                                type: $(this).attr('content')
                             });
                         });
 
                         var js = [];
                         for (var i = 0; i < requirements.length; i++) {
                             if (requirements[i].type === 'text/javascript') {
+                                if(requirements[i].src.indexOf(".js",requirements[i].src.length - ".js".length) !== 1){
+                                    requirements[i].src = requirements[i].src.slice(0,-3);
+                                }
                                 js.push(requirements[i].src);
                             } else if (requirements[i].type === 'text/css') {
-                                self.cm.load(requirements[i].src);
+                                self.cm.load('./css/'+requirements[i].src);
                             }
 
                         }
