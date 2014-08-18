@@ -1,8 +1,11 @@
 
 define(
         "inc/Engine",
-        ["inc/CSSManager"],
-        function(CSSManager) {
+        [
+            "jquery",
+            "inc/CSSManager"
+        ],
+        function($,CSSManager) {
 
             //Spiel Engine
             function Engine() {

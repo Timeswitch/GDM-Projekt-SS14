@@ -1,7 +1,9 @@
 define(
         "inc/CSSManager",
-        [],
-        function() {
+        [
+            "jquery"
+        ],
+        function($) {
             
             function CSSManager(){
                 this.css = {};
