@@ -67,7 +67,7 @@ define(
                         var js = [];
                         for (var i = 0; i < requirements.length; i++) {
                             if (requirements[i].type === 'text/javascript') {
-                                if(requirements[i].src.indexOf(".js",requirements[i].src.length - ".js".length) !== 1){
+                                if(requirements[i].src.indexOf(".js",requirements[i].src.length - ".js".length) !== -1){
                                     requirements[i].src = requirements[i].src.slice(0,-3);
                                 }
                                 js.push(requirements[i].src);
@@ -78,6 +78,20 @@ define(
                         }
 
                         require(js, function() {
+                            
+                            var count = arguments.length;
+                            for(var i=0; i<count; i++){
+                                var arg = arguments[i];
+
+                                if(typeof(arg.prototype.isController) !== 'undefined'){
+                                    if(arg.prototype.isController()){
+                                        
+                                        var controller = new arg(self,target);
+                                        controller.init();
+                                    }
+                                }
+                            }
+                            
                             if (typeof(callback) !== 'undefined') {
                                 //var args = Array.prototype.slice.call(arguments);
                                 //args.unshift(js);
