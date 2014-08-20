@@ -13,6 +13,8 @@ Es sollte beachtet werden, dass lediglich der Inhalt des `<body>` Tags der `.htm
 
 Um eigene CSS bzw. JavaScript Inhalte einzubetten sollten ein spezieller `<input>` Tag eingefügt werden.
 
+###Beispiel
+
 ```html
 
 <input type="hidden" content="text/javascript" value="test" />
@@ -21,8 +23,18 @@ Um eigene CSS bzw. JavaScript Inhalte einzubetten sollten ein spezieller `<input
 
 Die Pfadangabe ist hierbei relativ zu `/js` bzw. `/css`.
 
-Die angeforderten JavaScript Dateien werden mit Require.js geladen.
-Sollten Module definiert sein, werden diese dem Callback als Parameter übergeben.
+Wenn ein angefordertes Objekt beim Aufruf von `Objekt.isController()` `true` zurück
+gibt (z.B. wenn es von `inc/Controller` erbt), wird eine Instanz des Objektes
+mit einer Referenz auf die aktuelle Engine Instanz und dem Ziel-Container als Paramter erstellt, 
+anschließend wird `Objekt.init()` aufgerufen.
+
+
+##Inhalte manuell laden
+
+Mit `Engine.loadScene()` bzw. mit `Engine.loadHTML()` können HTML Inhalte, sowie JavaScript und CSS Dateien nachgeladen werden.
+
+`Engine.loadScene()` ersätzt den inhalt von `<body>`, während mit `Engine.loadHTML()` ein Tag als Ziel ausgewählt werden kann.
+Beiden Methoden kann ein Callback übergeben werden.
 
 ###Beispiel
 `/html/test.htm`
@@ -62,16 +74,5 @@ funtion callback(Beispiel){
 engine.loadHTML('/html/test.htm','body',callback);
 ```
 
-Wenn ein angefordertes Objekt beim Aufruf von `Objekt.isController()` `true` zurück
-gibt (z.B. wenn es von `inc/Controller` erbt), wird eine Instanz des Objektes
-mit einer Referenz auf die aktuelle Engine Instanz und dem Ziel-Container als Paramter erstellt, 
-anschließend wird `Objekt.init()` aufgerufen.
-
-
-##Inhalte manuell laden
-
-Mit `Engine.loadScene()` bzw. mit `Engine.loadHTML()` können HTML Inhalte, sowie JavaScript und CSS Dateien nachgeladen werden.
-
-`Engine.loadScene()` ersätzt den inhalt von `<body>`, während mit `Engine.loadHTML()` ein Tag als Ziel ausgewählt werden kann.
-Beiden Methoden kann ein Callback übergeben werden.
-
+Die angeforderten JavaScript Dateien werden mit Require.js geladen.
+Sollten Module definiert sein, werden diese dem Callback als Parameter übergeben.
