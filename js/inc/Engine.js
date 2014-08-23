@@ -22,10 +22,10 @@ define(
                         case 0:
                             this.initLevel++;
                             this.initCallback = callback;
-                            $('body').children().fadeOut({
-                                duration: 'slow',
+                            $('body').children().hide().fadeIn({
+                                duration: 2000,
                                 complete: function() {
-                                    $('link[href="css/loading.css"]').remove();
+                                    //$('link[href="css/loading.css"]').remove();
                                     self.init();
                                 }
                             });
