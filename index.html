@@ -14,21 +14,7 @@
                 navigator.standalone = navigator.standalone || (screen.height - document.documentElement.clientHeight < 40);
             }
 
-            window.isMobile = function detectmob() {
-                if (navigator.userAgent.match(/Android/i)
-                        || navigator.userAgent.match(/webOS/i)
-                        || navigator.userAgent.match(/iPhone/i)
-                        || navigator.userAgent.match(/iPad/i)
-                        || navigator.userAgent.match(/iPod/i)
-                        || navigator.userAgent.match(/BlackBerry/i)
-                        || navigator.userAgent.match(/Windows Phone/i)
-                        ) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            };
+            window.mobile = (typeof(window.orientation)  !== 'undefined');
         </script>
         <script data-main="js/init" src="js/lib/require.js"></script>
     </head>
