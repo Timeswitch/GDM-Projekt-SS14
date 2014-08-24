@@ -5,4 +5,12 @@ require.config({
     }
 });
 
-require(["main"]);
+require([
+            "inc/Engine"
+        ],
+	function(Engine){ 
+            
+            var application = new Engine();
+            application.init();
+    
+});

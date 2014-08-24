@@ -3,9 +3,10 @@ define(
         "inc/Engine",
         [
             "jquery",
-            "inc/CSSManager"
+            "inc/CSSManager",
+            "lib/viewport-units-buggyfill" //Danke Apple
         ],
-        function($,CSSManager) {
+        function($,CSSManager,vpu_buggyfill) {
 
             //Spiel Engine
             function Engine() {
@@ -13,7 +14,8 @@ define(
                 this.initLevel = 0;
                 this.initCallback = null;
                 
-                this.cm = new CSSManager();
+                this.vpu_buggyfill = vpu_buggyfill;
+                this.cm = new CSSManager(this.vpu_buggyfill);
 
                 this.init = function(callback) {
                     var self = this;
@@ -22,10 +24,11 @@ define(
                         case 0:
                             this.initLevel++;
                             this.initCallback = callback;
-                            $('body').children().fadeOut({
-                                duration: 'slow',
+                            this.vpu_buggyfill.init();
+                            $('body').children().hide().fadeIn({
+                                duration: 2000,
                                 complete: function() {
-                                    $('link[href="css/loading.css"]').remove();
+                                    //$('link[href="css/loading.css"]').remove();
                                     self.init();
                                 }
                             });
@@ -67,7 +70,7 @@ define(
                         var js = [];
                         for (var i = 0; i < requirements.length; i++) {
                             if (requirements[i].type === 'text/javascript') {
-                                if(requirements[i].src.indexOf(".js",requirements[i].src.length - ".js".length) !== 1){
+                                if(requirements[i].src.indexOf(".js",requirements[i].src.length - ".js".length) !== -1){
                                     requirements[i].src = requirements[i].src.slice(0,-3);
                                 }
                                 js.push(requirements[i].src);
@@ -78,6 +81,20 @@ define(
                         }
 
                         require(js, function() {
+                            
+                            var count = arguments.length;
+                            for(var i=0; i<count; i++){
+                                var arg = arguments[i];
+
+                                if(typeof(arg.prototype.isController) !== 'undefined'){
+                                    if(arg.prototype.isController()){
+                                        
+                                        var controller = new arg(self,target);
+                                        controller.init();
+                                    }
+                                }
+                            }
+                            
                             if (typeof(callback) !== 'undefined') {
                                 //var args = Array.prototype.slice.call(arguments);
                                 //args.unshift(js);
