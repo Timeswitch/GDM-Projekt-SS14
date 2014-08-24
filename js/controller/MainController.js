@@ -11,7 +11,7 @@ define(
             MainController.prototype.constructor = MainController;
             
             MainController.prototype.init = function(){
-                console.log("MainController");
+                console.log("WebApp: " + window.navigator.standalone + "\nMobile: " + window.mobile);
             };
             
             return MainController;
