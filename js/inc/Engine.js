@@ -3,9 +3,10 @@ define(
         "inc/Engine",
         [
             "jquery",
-            "inc/CSSManager"
+            "inc/CSSManager",
+            "lib/viewport-units-buggyfill" //Danke Apple
         ],
-        function($,CSSManager) {
+        function($,CSSManager,vpu_buggyfill) {
 
             //Spiel Engine
             function Engine() {
@@ -13,7 +14,8 @@ define(
                 this.initLevel = 0;
                 this.initCallback = null;
                 
-                this.cm = new CSSManager();
+                this.vpu_buggyfill = vpu_buggyfill;
+                this.cm = new CSSManager(this.vpu_buggyfill);
 
                 this.init = function(callback) {
                     var self = this;
@@ -22,6 +24,7 @@ define(
                         case 0:
                             this.initLevel++;
                             this.initCallback = callback;
+                            this.vpu_buggyfill.init();
                             $('body').children().hide().fadeIn({
                                 duration: 2000,
                                 complete: function() {
