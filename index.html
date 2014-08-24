@@ -3,12 +3,22 @@
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="css/fonts.css" />
         <link rel="stylesheet" type="text/css" href="css/loading.css" />
+        <script>
+            if (typeof (window.navigator.standalone) === 'undefined') {
+                navigator.standalone = navigator.standalone || (screen.height - document.documentElement.clientHeight < 40);
+            }
+
+            window.mobile = (typeof(window.orientation)  !== 'undefined');
+        </script>
         <script data-main="js/init" src="js/lib/require.js"></script>
     </head>
     <body>
-        <div class="wait-text">Bitte warten...</div>
+        <div class="wait-text" style="display: none;">Bitte warten...</div>
     </body>
 </html>
