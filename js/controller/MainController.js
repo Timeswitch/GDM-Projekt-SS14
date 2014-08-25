@@ -12,6 +12,7 @@ define(
             
             MainController.prototype.init = function(){
                 console.log("WebApp: " + window.navigator.standalone + "\nMobile: " + window.mobile);
+                $(window).resize(function(){console.log($(window).width()/$(window).height());});
             };
             
             return MainController;

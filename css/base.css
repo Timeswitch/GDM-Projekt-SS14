@@ -11,7 +11,8 @@ html, body{
     max-height: 100%;
     max-width: 100%;
 
-    background-color: #555555;
+    background-color: #545454;
+    background-image: url(img/noise.png);
     overflow: hidden;
 }
 
@@ -21,25 +22,42 @@ html, body{
     box-shadow: 0px 0px 95px 12px rgba(0,0,0,0.75);
 }
 
-@media (orientation:portrait){
-    #canvas{
-        margin-top: 4%;
-        margin-left: auto;
-        margin-right: auto;
-        
-        width: 80vw;
-        height: 60vw;
-    }
-}
-
 @media (orientation:landscape){
     #canvas{
         position: absolute;
         top: 50%;
-        margin-left: 4%;
-        
-        margin-top: -15vw;
-        width: 40vw;
-        height: 30vw;
+        margin-left: 2vw;
+
+        margin-top: -45vh;
+        width: 120vh;
+        height: 90vh;
+    }
+}
+
+@media (orientation:portrait){
+    #canvas{
+        position: relative;
+        top: initial;
+
+        margin-top: 5vw;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 90vw;
+        height: 67.5vw;
+    }
+}
+
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 29/18){
+    #canvas{
+        position: relative;
+        top: initial;
+
+        margin-top: 2vw;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 50vw;
+        height: 37.5vw;
     }
 }
