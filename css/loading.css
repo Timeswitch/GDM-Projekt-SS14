@@ -4,7 +4,8 @@
 */
 
 html, body{
-    background-color: #555555;
+    background-color: #545454;
+    background-image: url(../img/noise.png);
     height: 100%;
     max-height: 100%;
     margin: 0;
@@ -23,8 +24,8 @@ html, body{
     margin-left: 2%;
     margin-right: 2%;
     text-align: center;
-    font-size: 80px;
-    line-height: 80px; 
+    font-size: 70px;
+    line-height: 70px; 
     display: inline-block;
     
 }
