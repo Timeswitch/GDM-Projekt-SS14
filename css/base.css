@@ -22,25 +22,42 @@ html, body{
     box-shadow: 0px 0px 95px 12px rgba(0,0,0,0.75);
 }
 
-@media (orientation:portrait){
-    #canvas{
-        margin-top: 5vw;
-        margin-left: auto;
-        margin-right: auto;
-        
-        width: 90vw;
-        height: 67.5vw;
-    }
-}
-
 @media (orientation:landscape){
     #canvas{
         position: absolute;
         top: 50%;
         margin-left: 2vw;
-        
+
         margin-top: -45vh;
         width: 120vh;
         height: 90vh;
+    }
+}
+
+@media (orientation:portrait){
+    #canvas{
+        position: relative;
+        top: initial;
+
+        margin-top: 5vw;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 90vw;
+        height: 67.5vw;
+    }
+}
+
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 29/18){
+    #canvas{
+        position: relative;
+        top: initial;
+
+        margin-top: 2vw;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 50vw;
+        height: 37.5vw;
     }
 }
