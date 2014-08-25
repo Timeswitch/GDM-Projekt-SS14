@@ -11,7 +11,8 @@ html, body{
     max-height: 100%;
     max-width: 100%;
 
-    background-color: #555555;
+    background-color: #545454;
+    background-image: url(img/noise.png);
     overflow: hidden;
 }
 
@@ -23,12 +24,12 @@ html, body{
 
 @media (orientation:portrait){
     #canvas{
-        margin-top: 4%;
+        margin-top: 5vw;
         margin-left: auto;
         margin-right: auto;
         
-        width: 80vw;
-        height: 60vw;
+        width: 90vw;
+        height: 67.5vw;
     }
 }
 
@@ -36,10 +37,10 @@ html, body{
     #canvas{
         position: absolute;
         top: 50%;
-        margin-left: 4%;
+        margin-left: 2vw;
         
-        margin-top: -15vw;
-        width: 40vw;
-        height: 30vw;
+        margin-top: -45vh;
+        width: 120vh;
+        height: 90vh;
     }
 }
