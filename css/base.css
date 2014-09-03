@@ -11,22 +11,27 @@ html, body{
     max-height: 100%;
     max-width: 100%;
 
-    background-color: #545454;
+    background-color: #f1EFE2;
     background-image: url(img/noise.png);
     overflow: hidden;
 }
 
 #canvas{
-    border-radius: 15px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 95px 12px rgba(0,0,0,0.75);
+    background:#FFF;
+    border: 1px solid #d8d8d8;
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    padding:0px;
+    overflow:hidden;
+    box-shadow: 0 0 15px #bbbbbb;
 }
 
 #toolbar{
     position: absolute;
-    background-color: #663300;
-    
-    border: 5px solid #000;
+    box-shadow: 0 0 15px #b0b0b0;
+    border-radius: 3px;
+    overflow:hidden;
+    background:#e0e0e0;
 }
 
 
@@ -51,6 +56,10 @@ html, body{
         width: 25%;
         
         border-right: none;
+        
+        border-radius: 3px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
 
@@ -70,7 +79,7 @@ html, body{
     #toolbar{
         bottom: 0;
         top: 75%;
-        left: -45vw;
+        left: calc(-45vw - 5px);
         right: inherit;
         
         margin-top: 0;
@@ -78,6 +87,9 @@ html, body{
         
         width: 90vw;
         
+        border-radius: 3px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
         border-bottom: none;
     }
 }
@@ -106,6 +118,9 @@ html, body{
         
         width: 44vw;
         
+        border-radius: 3px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
         border-bottom: none;
         
     }
