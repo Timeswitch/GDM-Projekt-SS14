@@ -38,7 +38,8 @@ define(
                             this.loadScene('screens/start.htm', this.init.bind(this));
                             break;
                         case 2:
-                            this.initLevel++;
+                            this.initLevel++
+                            $('link[href="css/loading.css"]').remove();
                             if(typeof(this.initCallback) !== 'undefined' && this.initCallback !== null){
                                 this.initCallback();
                             }
