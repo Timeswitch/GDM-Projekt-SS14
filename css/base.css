@@ -21,8 +21,8 @@ html, body{
     border: 1px solid #d8d8d8;
     border-bottom-width: 2px;
     border-radius: 3px;
-    padding:0px;
-    overflow:hidden;
+    padding: 0px;
+    overflow: hidden;
     box-shadow: 0 0 15px #bbbbbb;
 }
 
@@ -185,8 +185,8 @@ html, body{
     
     .color{
         
-       width:  7.5vw;
-       height:  7.5vw;
+       width: 7.5vw;
+       height: 7.5vw;
        
        margin: 0.5vh;
     }

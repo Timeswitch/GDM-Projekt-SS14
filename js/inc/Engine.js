@@ -4,9 +4,10 @@ define(
         [
             "jquery",
             "inc/CSSManager",
-            "lib/viewport-units-buggyfill" //Danke Apple
+            "lib/viewport-units-buggyfill", //Danke Apple
+            "inc/Image"
         ],
-        function($,CSSManager,vpu_buggyfill) {
+        function($,CSSManager,vpu_buggyfill,Image) {
 
             //Spiel Engine
             function Engine() {
@@ -105,6 +106,18 @@ define(
 
 
                     });
+                };
+                
+                this.loadImage = function(image){
+                    var _image = null;
+                    
+                    _image = localStorage.getItem(image);
+                    
+                    if(_image === null){
+                        _image = new Image(image);
+                    }
+                    
+                    return _image;
                 };
                 
             }
