@@ -48,15 +48,10 @@ define(
             
             ColorGame.prototype.load = function(image){
                 this.image = this.engine.loadImage(image);
-                console.log(this.image);
-                this.update();
-            }
-            
-            ColorGame.prototype.update = function(){
+                
                 this.$canvas.empty();
                 this.svg = SVG(this.$canvas.attr('id')).size('100%','100%');
                 this.svg.image('img/'+this.image.image).size('100%','100%');
-                
             };
             
             return ColorGame;
