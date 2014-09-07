@@ -1,7 +1,10 @@
 define(
         "inc/ColorGame",
         ["lib/svg",
-         "jquery"],
+         "jquery",
+         "lib/jquery-ui",
+         "lib/jquery.ui.touch-punch"
+        ],
         function(SVG,$){
             
             function ColorGame($canvas, $toolbar){
@@ -21,7 +24,16 @@ define(
                 
                 
                 $(colors).each(function(index,element){
-                    //+*element.draggable();
+                    element.draggable({
+                        helper: 'clone',//function() {
+                            //return $('<div class="color-info red"></div>');
+                        //},
+                        cursorAt: {
+                            top: 0,
+                            left: 0
+                        }
+                    });
+                    
                 });
         
                 var colorContainer = $('<div></div>');
