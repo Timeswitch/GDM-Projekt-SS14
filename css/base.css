@@ -176,10 +176,15 @@ html, body{
     
     
     #toolbar{
-        margin-top: 1.6vh;
+        width: 100%;
+        text-align: center;
+        
+        top: 50%;
+        margin-top: -3.75vw;
     }
     
     .color{
+        
        width:  7.5vw;
        height:  7.5vw;
        
