@@ -26,12 +26,26 @@ html, body{
     box-shadow: 0 0 15px #bbbbbb;
 }
 
-#toolbar{
+#toolbar-container{
     position: absolute;
     box-shadow: 0 0 15px #b0b0b0;
     border-radius: 3px;
     overflow:hidden;
     background:#e0e0e0;
+}
+
+#toolbar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    
+}
+
+.color{
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    display: inline-block;
 }
 
 
@@ -46,20 +60,34 @@ html, body{
         height: 86.25vh;
     }
     
-    #toolbar{
+    #toolbar-container{
         right: 0;
         top: 50%;
         
         margin-top: -45vh;
         
         height: 90vh;
-        width: 25%;
+        width: 24vh;
         
         border-right: none;
         
         border-radius: 3px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+    }
+    
+    #toolbar{
+        width: 100%;
+            
+        margin-top: 3.75vh;    
+        
+        text-align: center;
+    }
+    
+    .color{
+       width: 14vh;
+       height: 14vh;
+       margin: 1vh;
     }
 }
 
@@ -76,9 +104,8 @@ html, body{
         height: 67.5vw;
     }
     
-    #toolbar{
+    #toolbar-container{
         bottom: 0;
-        top: 75%;
         left: calc(-45vw - 5px);
         right: inherit;
         
@@ -86,11 +113,26 @@ html, body{
         margin-left: 50%;
         
         width: 90vw;
+        height: 20vw;
         
         border-radius: 3px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom: none;
+    }
+    
+    
+    
+    #toolbar{
+        margin-left: 5vw;
+        margin-top: 2vw;
+    }
+    
+    .color{
+       width: 14vw;
+       height: 14vw;
+       
+       margin: 1vw;
     }
 }
 
@@ -107,16 +149,18 @@ html, body{
         height: 33vw;
     }
     
-    #toolbar{
-        bottom: 0;
-        top: 75%;
-        left: -22vw;
-        right: inherit;
+    #toolbar-container{
+        position: absolute;
         
-        margin-top: 0;
+        margin: 0;
         margin-left: 50%;
+        left: -22vw;
+        
+        top: initial;
+        bottom: 0;
         
         width: 44vw;
+        height: 10vw;
         
         border-radius: 3px;
         border-bottom-left-radius: 0;
@@ -124,4 +168,18 @@ html, body{
         border-bottom: none;
         
     }
+    
+    
+    
+    #toolbar{
+        margin-top: 1.2vh;
+    }
+    
+    .color{
+       width:  7.8vh;
+       height:  7.8vh;
+       
+       margin: 1vh;
+    }
+    
 }

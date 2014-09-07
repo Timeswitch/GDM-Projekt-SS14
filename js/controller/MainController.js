@@ -14,10 +14,7 @@ define(
             
             MainController.prototype.init = function(){
                 
-                console.log("WebApp: " + window.navigator.standalone + "\nMobile: " + window.mobile);
-                $(window).resize(function(){console.log($(window).width()/$(window).height());});
-                this.cg.$toolbar.html("<h1>hi!</h1>");
-                console.log(this.cg);
+                this.cg.init();
             };
             
             return MainController;
