@@ -60,6 +60,8 @@ define(
                         width: '100%',
                         height: '100%'
                     });
+                    
+                    self.animate();
                 });
                 
                 
@@ -67,15 +69,16 @@ define(
             
             ColorGame.prototype.initImage = function(){
                 var self = this;
-                console.log(this.svg);
-               Image.each(this.svg,function(index,element){
-                   console.log(index);
+                
+                Image.each(this.svg,function(index,element){
+                   console.log(element);
                    var fill = {
+                       name: index,
                         original: element.attr('fill'),
                         current: '#ffffff'
                     };
 
-                    self.image.colors[index] = fill;
+                    self.image.colors.push(fill);
                });
             };
             
@@ -83,7 +86,7 @@ define(
                 if(this.image.colors.length === 0){
                     this.initImage();
                 }
-                
+                console.log(this.image);
                 
             };
             
