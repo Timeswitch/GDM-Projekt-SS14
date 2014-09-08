@@ -72,9 +72,13 @@ define(
                 
                 Image.each(this.svg,function(index,element){
                    console.log(element);
+                   var color = Snap.color(element.attr('fill'));
+                   
+                   var hexColor = Snap.rgb(color.r,color.g,color.b);
+                   
                    var fill = {
                         name: index,
-                        original: element.attr('fill'),
+                        original: hexColor,
                         current: '#ffffff'
                     };
 
