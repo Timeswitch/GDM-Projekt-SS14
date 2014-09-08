@@ -2,18 +2,18 @@ define(
         "inc/ColorGame",
         [
          "inc/Image",
-         "lib/svg",
+         "inc/SnapLoader",
          "jquery",
          "lib/jquery-ui",
          "lib/jquery.ui.touch-punch",
         ],
-        function(Image,SVG,$){
-            
+        function(Image,Snap,$){
             function ColorGame($canvas, $toolbar, engine){
                 this.$canvas = $canvas;
                 this.$toolbar = $toolbar;
-                this.engine = engine;
+                this.svgCanvas = Snap($canvas.find('svg')[0]);
                 this.svg = null;
+                this.engine = engine;
                 
                 this.image = null;
             }
@@ -52,13 +52,16 @@ define(
                 var self = this;
                 
                 this.image = this.engine.loadImage(image);
-                
-                this.$canvas.empty();
-                this.svg = SVG(this.$canvas.attr('id')).size('100%','100%');
-                this.svg.image('img/'+this.image.image).loaded(function(){
-                    this.size('100%','100%');
-                    self.animate();
+                Snap.load('img/'+this.image.image,function(svg){
+                    self.svgCanvas.append(svg);
+                    self.svg = self.svgCanvas.select('svg');
+                    
+                    self.svg.attr({
+                        width: '100%',
+                        height: '100%'
+                    });
                 });
+                
                 
             };
             
