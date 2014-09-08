@@ -73,12 +73,12 @@ define(
                 Image.each(this.svg,function(index,element){
                    console.log(element);
                    var fill = {
-                       name: index,
+                        name: index,
                         original: element.attr('fill'),
                         current: '#ffffff'
                     };
 
-                    self.image.colors.push(fill);
+                    self.image.add(fill);
                });
             };
             

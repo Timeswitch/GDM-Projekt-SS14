@@ -6,7 +6,12 @@ define(
         function Image(image){
             this.image = image;
             this.colors = Array();
+            this.colorsAssoc = Array();
         }
+        
+        Image.prototype.add = function addColor(color){
+            this.colorsAssoc[color.name] = this.colors[this.colors.push(color)-1];
+        };
         
         Image.each = function(svg,func){
              var col = null;
