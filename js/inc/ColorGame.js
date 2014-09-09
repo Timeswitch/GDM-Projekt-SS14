@@ -14,6 +14,7 @@ define(
                 this.svgCanvas = Snap($canvas.find('svg')[0]);
                 this.svg = null;
                 this.engine = engine;
+                this.colorButtons = Array();
                 
                 this.image = null;
             }
@@ -28,19 +29,7 @@ define(
                 );
                 
                 
-                
-                $(colors).each(function(index,element){
-                    element.draggable({
-                        helper: 'clone',//function() {
-                            //return $('<div class="color-info red"></div>');
-                        //},
-                        cursorAt: {
-                            top: 0,
-                            left: 0
-                        }
-                    });
-                    
-                });
+                this.colorButtons = colors;
         
                 var colorContainer = $('<div></div>');
                 colorContainer.append(colors);
@@ -87,11 +76,36 @@ define(
             };
             
             ColorGame.prototype.animate = function(){
+                
+                var self = this;
+                
                 if(this.image.colors.length === 0){
                     this.initImage();
                 }
-                console.log(this.image);
                 
+                Image.each(this.svg,function(index,element){
+                    
+                    element.animate({
+                        fill: self.image.colorsAssoc[index].current
+                    },2000,function(){self.start();});
+                    
+                });
+                
+            };
+            
+            ColorGame.prototype.start = function(){
+                $(this.colorButtons).each(function(index,element){
+                    element.draggable({
+                        helper: 'clone',//function() {
+                            //return $('<div class="color-info red"></div>');
+                        //},
+                        cursorAt: {
+                            top: 0,
+                            left: 0
+                        }
+                    });
+                    
+                });
             };
             
             return ColorGame;
