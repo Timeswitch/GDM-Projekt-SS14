@@ -6,6 +6,7 @@ define(
             "jquery",
             "lib/jquery-ui",
             "lib/jquery.ui.touch-punch",
+            "lib/conversions"
         ],
         function(Image, Snap, $) {
             function ColorGame($canvas, $toolbar, engine) {
@@ -149,9 +150,38 @@ define(
             
             ColorGame.prototype.mixColor = function(id,color){
                 var element = this.svg.select('#'+id);
-                element.attr({
-                    fill: color
-                });
+                
+                if(element != null){
+                    var rgbColor = Snap.color(color);
+                    rgbColor = [rgbColor.r,rgbColor.g,rgbColor.b];
+                    var mix = rgb2cmyk(rgbColor);
+                    
+                    rgbColor = Snap.color(this.image.colorsAssoc[id].current);
+                    rgbColor = [rgbColor.r,rgbColor.g,rgbColor.b];
+                    var target = rgb2cmyk(rgbColor);
+                    
+                    for(var i=0; i<4; i++){
+                        if(isNaN(mix[i])){
+                            mix[i] = 0.0;
+                        }
+                        
+                        if(isNaN(target[i])){
+                            target[i] = 0.0;
+                        }
+                        
+                        target[i] = (target[i] + (mix[i]/8));
+                    }
+                    
+                    var result = cmyk2rgb(target);
+                    result = Snap.color('rgb('+result[0]+','+result[1]+','+result[2]+')').hex;
+                    
+                    this.image.colorsAssoc[id].current = result;
+                    element.attr({
+                        fill: result
+                    });
+                }
+                
+                
             };
 
             return ColorGame;
