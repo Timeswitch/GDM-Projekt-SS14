@@ -77,6 +77,31 @@ define(
                     });
 
                 }
+                
+                var hover_start = function(element){
+                    element.attr({
+                            'stroke-width': '5',
+                            'stroke': '#ff00ff'
+                        });
+                };
+                
+                var hover_end = function(element){
+                    element.attr({
+                            'stroke': 'none'
+                        });
+                        
+                     
+                };
+                
+                Image.each(this.svg, function(index, element) {
+                    element.hover(function(){
+                        hover_start(element);
+                    },
+                    function(){
+                        hover_end(element);
+                    });
+                    
+                });
             };
 
             ColorGame.prototype.animate = function() {
@@ -96,6 +121,8 @@ define(
             };
 
             ColorGame.prototype.start = function() {
+                var self = this;
+                
                 $(this.colorButtons).each(function(index, element) {
                     element.draggable({
                         helper: 'clone', //function() {
@@ -104,9 +131,26 @@ define(
                         cursorAt: {
                             top: 0,
                             left: 0
+                        },
+                        
+                        stop: function(event, ui){
+                            var element = document.elementFromPoint(ui.offset.left, ui.offset.top);
+                            if(element.tagName === 'path'){
+                                var id = element.getAttribute('id');
+                                var color = ui.helper.css('background-color');
+                                
+                                self.mixColor(id,color);
+                            }
                         }
                     });
 
+                });
+            };
+            
+            ColorGame.prototype.mixColor = function(id,color){
+                var element = this.svg.select('#'+id);
+                element.attr({
+                    fill: color
                 });
             };
 
