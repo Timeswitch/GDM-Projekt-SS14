@@ -152,6 +152,7 @@ define(
                 var element = this.svg.select('#'+id);
                 
                 if(element != null){
+                    
                     var rgbColor = Snap.color(color);
                     rgbColor = [rgbColor.r,rgbColor.g,rgbColor.b];
                     var mix = rgb2cmyk(rgbColor);
@@ -160,7 +161,7 @@ define(
                     rgbColor = [rgbColor.r,rgbColor.g,rgbColor.b];
                     var target = rgb2cmyk(rgbColor);
                     
-                    for(var i=0; i<4; i++){
+                    for(var i=0; i<3; i++){
                         if(isNaN(mix[i])){
                             mix[i] = 0.0;
                         }
@@ -169,12 +170,26 @@ define(
                             target[i] = 0.0;
                         }
                         
-                        target[i] = (target[i] + (mix[i]/8));
+                        target[i] = ((target[i] + mix[i]/8));
                     }
+                    
+                    target[3] = ((target[3] + mix[3])/2);
                     
                     var result = cmyk2rgb(target);
                     result = Snap.color('rgb('+result[0]+','+result[1]+','+result[2]+')').hex;
                     
+                   /*
+                    var mix = Snap.color(color);
+                    var target = Snap.color(this.image.colorsAssoc[id].current);
+                    
+                    var tempMix = [mix.r,mix.g,mix.b];
+                    var tempTarget = [target.r,target.g,target.b];
+                    for(var i=0;i<3;i++){
+                        tempTarget[i] = (((tempTarget[i]+tempTarget[i]+tempMix[i])/3));
+                    }
+                    
+                    var result = Snap.color('rgb('+tempTarget[0]+','+tempTarget[1]+','+tempTarget[2]+')').hex;
+                   */
                     this.image.colorsAssoc[id].current = result;
                     element.attr({
                         fill: result
