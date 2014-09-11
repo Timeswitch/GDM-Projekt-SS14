@@ -111,12 +111,12 @@ define(
                 };
                 
                 this.loadImage = function(image){
-                    var _image = null;
+                    var _image = new Image(image);
                     
-                    _image = this.storage.loadObject(image);
+                    var colors = this.storage.loadObject(image);
                     
-                    if(_image === null){
-                        _image = new Image(image);
+                    if(colors !== null){
+                        _image.colors = colors; 
                     }
                     
                     $(_image.colors).each(function(index,element){
@@ -127,7 +127,7 @@ define(
                 };
                 
                 this.saveImage = function(image){
-                    this.storage.saveObject(image.image,image);
+                    this.storage.saveObject(image.image,image.colors);
                 };
             }
             

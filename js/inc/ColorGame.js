@@ -46,7 +46,9 @@ define(
                 this.image = this.engine.loadImage(image);
                 Snap.load('img/' + this.image.image, function(svg) {
                     self.svgCanvas.append(svg);
-                    self.svg = self.svgCanvas.select('svg');
+                    self.svg = svg.paper.select('svg');
+                    
+                    
 
                     self.svg.attr({
                         width: '100%',
@@ -242,8 +244,18 @@ define(
                     element.attr({
                         fill: result
                     });
+                    
+                    this.check();
                 }
                 
+                
+            };
+            
+            ColorGame.prototype.check = function(){
+                
+                if(this.image.check()){
+                    alert('Passt so!');
+                }
                 
             };
 
