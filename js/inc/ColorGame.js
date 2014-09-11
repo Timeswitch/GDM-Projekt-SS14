@@ -6,6 +6,8 @@ define(
             "jquery",
             "lib/jquery-ui",
             "lib/jquery.ui.touch-punch",
+            "lib/jquery.color",
+            "lib/color_mixer",
             "lib/conversions"
         ],
         function(Image, Snap, $) {
@@ -25,7 +27,7 @@ define(
                         $('<div class="color" style="background-color: #00ffff;"></div>'),
                         $('<div class="color" style="background-color: #ffff00;"></div>'),
                         $('<div class="color" style="background-color: #ff00ff;"></div>'),
-                        $('<div class="color" style="background-color: #000000;"></div>'),
+                        $('<div class="color" style="background-color: #010101;"></div>'),
                         $('<div class="color" style="background-color: #ffffff;"></div>')
                         );
 
@@ -152,7 +154,50 @@ define(
                 var element = this.svg.select('#'+id);
                 
                 if(element != null){
+                    var targetHex = $.Color(this.image.colorsAssoc[id].current).toHexString();
+                    var colorHex =  $.Color(color).toHexString();
                     
+                    var result = '#ffffff';
+                    console.log(colorHex + ' ' + targetHex);
+                    if(colorHex === '#ffffff' || colorHex === '#010101' || targetHex === '#ffffff' || targetHex === '#010101'){
+                        console.log('white');
+                        var mix = $.Color(color);
+                        var target = $.Color(targetHex);
+                        
+                        mix = Color_mixer.mix(mix,target);
+                        mix = Color_mixer.mix(mix,target);
+
+                        result = mix.toHexString();
+                    }else{
+                        var rgbColor = Snap.color(color);
+                        rgbColor = [rgbColor.r,rgbColor.g,rgbColor.b];
+                        var mix = rgb2cmyk(rgbColor);
+
+                        rgbColor = Snap.color(this.image.colorsAssoc[id].current);
+                        rgbColor = [rgbColor.r,rgbColor.g,rgbColor.b];
+                        var target = rgb2cmyk(rgbColor);
+
+                        for(var i=0; i<3; i++){
+                            if(isNaN(mix[i])){
+                                mix[i] = 0.0;
+                            }
+
+                            if(isNaN(target[i])){
+                                target[i] = 0.0;
+                            }
+
+                            target[i] = ((target[i] + mix[i]/8));
+                        }
+
+                        target[3] = ((target[3] + mix[3])/2);
+
+                        console.log(target);
+
+                        var result = cmyk2rgb(target);
+                        result = Snap.color('rgb('+result[0]+','+result[1]+','+result[2]+')').hex;
+                    }
+                    
+                    /*
                     var rgbColor = Snap.color(color);
                     rgbColor = [rgbColor.r,rgbColor.g,rgbColor.b];
                     var mix = rgb2cmyk(rgbColor);
@@ -174,6 +219,8 @@ define(
                     }
                     
                     target[3] = ((target[3] + mix[3])/2);
+                    
+                    console.log(target);
                     
                     var result = cmyk2rgb(target);
                     result = Snap.color('rgb('+result[0]+','+result[1]+','+result[2]+')').hex;
