@@ -18,6 +18,7 @@ define(
                 this.svg = null;
                 this.engine = engine;
                 this.colorButtons = Array();
+                this.dragging = false;
 
                 this.image = null;
             }
@@ -25,8 +26,8 @@ define(
             ColorGame.prototype.init = function() {
                 var colors = Array(
                         $('<div class="color" style="background-color: #00ffff;"></div>'),
-                        $('<div class="color" style="background-color: #ffff00;"></div>'),
                         $('<div class="color" style="background-color: #ff00ff;"></div>'),
+                        $('<div class="color" style="background-color: #ffff00;"></div>'),
                         $('<div class="color" style="background-color: #010101;"></div>'),
                         $('<div class="color" style="background-color: #ffffff;"></div>')
                         );
@@ -84,6 +85,29 @@ define(
                 }
                 
                 var hover_start = function(element){
+                    
+                    if(!self.dragging){
+                        var info = $('#info-'+element.attr('id'));
+                        if(info.length === 0){
+                            $('.info').remove();
+                            info = $('<div id="info-'+element.attr('id')+'" class="color info" style="position:absolute; background-color:'+self.image.colorsAssoc[element.attr('id')].original+';"></div>');
+                        
+                            var offset = $('#' + element.attr('id')).offset();
+                            var box = element.getBBox();
+
+                            offset.top;// += box.height;
+                            offset.left;// += box.width;
+
+                            info.css('top', offset.top + 'px');
+                            info.css('left', offset.left + 'px');
+
+                            $('body').append(info);
+                        }
+                                
+                        
+                    }
+                    
+                    
                     element.attr({
                             'stroke-width': '5',
                             'stroke': '#ff00ff'
@@ -91,11 +115,23 @@ define(
                 };
                 
                 var hover_end = function(element){
+
+                    var info = $('#info-'+element.attr('id'));
+                    var move = function(event){
+                        var el = document.elementFromPoint(event.pageX, event.pageY);
+
+                        if(el === null || ($(el).attr('id') !== info.attr('id'))){
+
+                                info.remove();
+                                
+                        }
+                        $(document).unbind('mousemove',move);
+                    };
+                    
+                    $(document).mousemove(move);
                     element.attr({
                             'stroke': 'none'
-                        });
-                        
-                     
+                    });
                 };
                 
                 Image.each(this.svg, function(index, element) {
@@ -146,6 +182,13 @@ define(
                                 
                                 self.mixColor(id,color);
                             }
+                            
+                            self.dragging = false;
+                        },
+                        
+                        start: function(){
+                            self.dragging = true;
+                            $('.info').remove();
                         }
                     });
 
