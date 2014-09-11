@@ -4,9 +4,11 @@ define(
         [
             "jquery",
             "inc/CSSManager",
-            "lib/viewport-units-buggyfill" //Danke Apple
+            "lib/viewport-units-buggyfill", //Danke Apple
+            "inc/Image",
+            "inc/Storage"
         ],
-        function($,CSSManager,vpu_buggyfill) {
+        function($,CSSManager,vpu_buggyfill,Image,Storage) {
 
             //Spiel Engine
             function Engine() {
@@ -16,6 +18,7 @@ define(
                 
                 this.vpu_buggyfill = vpu_buggyfill;
                 this.cm = new CSSManager(this.vpu_buggyfill);
+                this.storage = new Storage();
 
                 this.init = function(callback) {
                     var self = this;
@@ -38,7 +41,8 @@ define(
                             this.loadScene('screens/start.htm', this.init.bind(this));
                             break;
                         case 2:
-                            this.initLevel++;
+                            this.initLevel++
+                            $('link[href="css/loading.css"]').remove();
                             if(typeof(this.initCallback) !== 'undefined' && this.initCallback !== null){
                                 this.initCallback();
                             }
@@ -106,7 +110,27 @@ define(
                     });
                 };
                 
+                this.loadImage = function(image){
+                    var _image = new Image(image);
+                    
+                    var colors = this.storage.loadObject(image);
+                    
+                    if(colors !== null){
+                        _image.colors = colors; 
+                    }
+                    
+                    $(_image.colors).each(function(index,element){
+                        _image.colorsAssoc[element.name] = element;
+                    });
+                    
+                    return _image;
+                };
+                
+                this.saveImage = function(image){
+                    this.storage.saveObject(image.image,image.colors);
+                };
             }
+            
 
             return Engine;
         }
