@@ -140,7 +140,7 @@ define(
                         
                         stop: function(event, ui){
                             var element = document.elementFromPoint(ui.offset.left, ui.offset.top);
-                            if(element.tagName === 'path'){
+                            if(element !== null && element.tagName === 'path'){
                                 var id = element.getAttribute('id');
                                 var color = ui.helper.css('background-color');
                                 
