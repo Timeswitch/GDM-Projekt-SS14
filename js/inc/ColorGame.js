@@ -191,6 +191,7 @@ define(
                     var result = Snap.color('rgb('+tempTarget[0]+','+tempTarget[1]+','+tempTarget[2]+')').hex;
                    */
                     this.image.colorsAssoc[id].current = result;
+                    this.engine.saveImage(this.image);
                     element.attr({
                         fill: result
                     });
