@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -56,17 +56,18 @@
      inkscape:groupmode="layer">
     <g
        id="g3790"
-       transform="matrix(2.16,0,0,2.16,-24.229999,-37.917274)">
+       transform="matrix(2.16,0,0,2.16,-24.229999,-37.917274)"
+       style="fill:#ffffff">
       <path
          inkscape:connector-curvature="0"
          id="path3020"
          d="M 13.454545,31.818182 26.227273,19.045455 39.136364,31.954546"
-         style="fill:#003b96;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path3018"
          d="m 15.727273,45.454545 c 0,-0.363636 0,-15.636363 0,-15.636363 l 20.818182,0 0,15.727273 z"
-         style="fill:#003b96;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
   </g>
 </svg>

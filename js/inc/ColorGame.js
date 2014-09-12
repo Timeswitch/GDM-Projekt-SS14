@@ -39,6 +39,14 @@ define(
                 colorContainer.append(colors);
 
                 this.$toolbar.append(colors);
+                
+                var buttonContainer = $('<div class="command-container"></div>');
+                var home = $('<div class="command" id="home-button"></div>');
+                var reset = $('<div class="command" id="reset-button"></div>');
+                
+                buttonContainer.append(home);
+                buttonContainer.append(reset);
+                this.$canvas.append(buttonContainer);
             };
 
             ColorGame.prototype.load = function(image) {

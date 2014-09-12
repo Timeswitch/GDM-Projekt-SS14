@@ -22,8 +22,9 @@ html, body{
     border-bottom-width: 2px;
     border-radius: 3px;
     padding: 0px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     box-shadow: 0 0 15px #bbbbbb;
+    position: relative;
 }
 
 #toolbar-container{
@@ -54,6 +55,25 @@ html, body{
     
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;
+}
+
+.command{
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    border-width: 2px;
+    background-position: center;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+#home-button{
+    background-image: url('./img/home.svg');
+}
+
+#reset-button{
+    background-image: url('./img/trash.svg');
 }
 
 
@@ -97,6 +117,19 @@ html, body{
        width: 14vh;
        height: 14vh;
        margin: 1vh;
+    }
+    
+    .command{
+       width: 10vh;
+       height: 10vh;
+       margin: 1vh;
+    }
+    
+    .command-container{
+        top: 0;
+        position: absolute;
+        left: 95%;
+        text-align: right;
     }
 }
 
@@ -142,6 +175,21 @@ html, body{
        height: 14vw;
        
        margin: 1vw;
+    }
+    
+    .command{
+       width: 10vh;
+       height: 10vh;
+       margin: 1vh;
+    }
+    
+    
+    .command-container{
+        position: absolute;
+        top: 95%;
+        right: 0;
+        text-align: right;
+        left: 0;
     }
 }
 
@@ -194,6 +242,21 @@ html, body{
        height: 7.5vw;
        
        margin: 0.5vh;
+    }
+    
+    .command{
+       width: 5vw;
+       height: 5vw;
+       margin: 0.5vh;
+    }
+    
+    
+    .command-container{
+        position: absolute;
+        top: 95%;
+        right: 0;
+        text-align: right;
+        left: 0;
     }
     
 }
