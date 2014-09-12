@@ -108,6 +108,10 @@ define(
                     }
                     
                     
+                    
+                    element.data('stroke',element.attr('stroke'));
+                    element.data('stroke-width',element.attr('stroke-width'));
+                    
                     element.attr({
                             'stroke-width': '5',
                             'stroke': '#ff00ff'
@@ -129,8 +133,10 @@ define(
                     };
                     
                     $(document).mousemove(move);
+                    
                     element.attr({
-                            'stroke': 'none'
+                            'stroke': element.data('stroke'),
+                            'stroke-width': element.data('stroke-width')
                     });
                 };
                 
