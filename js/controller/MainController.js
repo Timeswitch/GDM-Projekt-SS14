@@ -52,13 +52,44 @@ define(
                         schaukel.attr({
                             width: "100%",
                             height: "100%"
-                        })
+                        });
                         schaukel.select("#g3028").transform(schaukel.select("#g3028").transform() + "s0.55t-200,100");
+                    }
+                    if (myDisplayList[ fileName ] == "ball") {
+                        ball = frag.select("svg");
+                        ball.attr({
+                            width: "100%",
+                            height: "100%"
+                        });
+                        console.log(ball);
                     }
 
                     console.log(fileName, ' fragment loaded');
                 }
 
+                function enableClick(){
+                    sandkasten.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'sandkasten.svg'})
+                        });
+                        tor.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'tor.svg'})
+                        });
+                        rutsche.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'rutsche.svg'})
+                        });
+                        schaukel.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'schaukel.svg'})
+                        });
+                }
+                
+                function finished(){
+                    enableClick();
+                }
+                
                 function onAllLoaded() {
                     var firstRun = localStorage.getItem('firstrun');
                     if (typeof (firstRun) === 'undefined' || firstRun === null) {
@@ -86,7 +117,9 @@ define(
                             schaukel.select("#col-" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
                         }
                         
-                        schaukel.select("#col-17").animate({fill: "#fff"}, 9000, mina.linear);
+                        schaukel.select("#col-17").animate({fill: "#fff"}, 9000, function(){
+                            finished();
+                        });
                         
                     } else {
                         
@@ -138,23 +171,8 @@ define(
                             });
                         });
                         
+                        enableClick();
                         
-                        sandkasten.click(function() {
-                            self.engine.loadScene('screens/MixGame.htm', function() {
-                            }, {image: 'sandkasten.svg'})
-                        });
-                        tor.click(function() {
-                            self.engine.loadScene('screens/MixGame.htm', function() {
-                            }, {image: 'tor.svg'})
-                        });
-                        rutsche.click(function() {
-                            self.engine.loadScene('screens/MixGame.htm', function() {
-                            }, {image: 'rutsche.svg'})
-                        });
-                        schaukel.click(function() {
-                            self.engine.loadScene('screens/MixGame.htm', function() {
-                            }, {image: 'schaukel.svg'})
-                        });
                     }
 
 
@@ -163,9 +181,9 @@ define(
                 }
 
                 var s = Snap("#canvas");
-                var flaeche, rutsche, tor, sandkasten, schaukel;
-                var myLoadList = ["img/flaeche.svg", "img/rutsche.svg", "img/tor.svg", "img/sandkasten.svg", "img/schaukel.svg"];
-                var myDisplayList = {"img/flaeche.svg": "flaeche", "img/rutsche.svg": "rutsche", "img/tor.svg": "tor", "img/sandkasten.svg": "sandkasten", "img/schaukel.svg": "schaukel"};
+                var flaeche, rutsche, tor, sandkasten, schaukel, ball;
+                var myLoadList = ["img/flaeche.svg", "img/rutsche.svg", "img/tor.svg", "img/sandkasten.svg", "img/schaukel.svg", "img/Ball.svg"];
+                var myDisplayList = {"img/flaeche.svg": "flaeche", "img/rutsche.svg": "rutsche", "img/tor.svg": "tor", "img/sandkasten.svg": "sandkasten", "img/schaukel.svg": "schaukel", "img/Ball.svg": "ball"};
 
                 s.loadFilesDisplayOrdered(myLoadList, onAllLoaded, onEachLoaded);
             };

@@ -327,7 +327,8 @@ define(
             ColorGame.prototype.check = function(){
                 
                 if(this.image.check()){
-                    alert('Passt so!');
+                    alert('Du hast es geschafft!');
+                    this.home();
                 }
                 
             };
