@@ -55,6 +55,7 @@ html, body{
     
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;
+    cursor: pointer;
 }
 
 .command{
@@ -66,6 +67,7 @@ html, body{
     background-size: 75%;
     background-repeat: no-repeat;
     display: inline-block;
+    cursor: pointer;
 }
 
 #home-button{
