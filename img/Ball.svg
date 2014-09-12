@@ -19,7 +19,7 @@
    xml:space="preserve"
    id="svg3221"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="BeachBall.svg"><metadata
+   sodipodi:docname="Ball.svg"><metadata
    id="metadata3248"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -32,71 +32,89 @@
    guidetolerance="10"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
-   inkscape:window-width="1920"
-   inkscape:window-height="1017"
+   inkscape:window-width="1296"
+   inkscape:window-height="565"
    id="namedview3244"
    showgrid="false"
    inkscape:zoom="0.93650794"
-   inkscape:cx="683.54422"
-   inkscape:cy="355.42134"
-   inkscape:window-x="-8"
-   inkscape:window-y="-8"
-   inkscape:window-maximized="1"
+   inkscape:cx="479.06117"
+   inkscape:cy="269.99761"
+   inkscape:window-x="339"
+   inkscape:window-y="226"
+   inkscape:window-maximized="0"
    inkscape:current-layer="svg3221" />
 <g
-   id="Layer_2">
+   id="Layer_2"
+   transform="matrix(-1,0,0,-1,505.68201,458.68399)">
 	<circle
    cx="252.841"
    cy="229.342"
    r="185.241"
-   id="circle3224" />
+   id="circle3224"
+   sodipodi:cx="252.841"
+   sodipodi:cy="229.342"
+   sodipodi:rx="185.241"
+   sodipodi:ry="185.241"
+   d="m 438.082,229.342 c 0,102.30577 -82.93522,185.24099 -185.241,185.24099 -102.30577,0 -185.240994,-82.93522 -185.240994,-185.24099 0,-102.30578 82.935224,-185.241002 185.240994,-185.241002 102.30578,0 185.241,82.935222 185.241,185.241002 z" />
 </g>
 <g
-   id="Layer_3">
+   id="Layer_3"
+   transform="matrix(-1,0,0,-1,505.68201,458.68399)">
 	<circle
-   fill="#FFFFFF"
    cx="217.909"
    cy="182.767"
-   r="47.981"
-   id="circle3227" />
+   r="47.980999"
+   id="circle3227"
+   sodipodi:cx="217.909"
+   sodipodi:cy="182.767"
+   sodipodi:rx="47.980999"
+   sodipodi:ry="47.980999"
+   style="fill:#ffffff"
+   d="m 265.89,182.767 c 0,26.49917 -21.48183,47.981 -47.981,47.981 -26.49918,0 -47.981,-21.48183 -47.981,-47.981 0,-26.49918 21.48182,-47.981 47.981,-47.981 26.49917,0 47.981,21.48182 47.981,47.981 z" />
 </g>
 <g
-   id="Layer_4">
+   id="Layer_4"
+   transform="matrix(-1,0,0,-1,505.68201,458.68399)"
+   style="fill:#f3001d;fill-opacity:1">
 	<path
    d="m 219.895,126.127 c 0,0 3.407,-47.696 48.974,-68.563 0,0 88.153,-3.833 140.534,92.838 0,0 -40.031,-36.198 -142.238,5.536 -0.001,-10e-4 -6.814,-25.978 -47.27,-29.811 z"
    id="col-1"
    inkscape:connector-curvature="0"
-   style="fill:#cb2027" />
+   style="fill:#f3001d;fill-opacity:1" />
 	<path
    d="m 108.745,329.688 c 0,0 -8.091,-63.453 59.195,-118.815 0,0 10.221,24.274 37.476,27.255 0,0 -6.814,118.389 21.292,164.808 0,0.001 -66.86,4.684 -117.963,-73.248 z"
    id="col-2"
    inkscape:connector-curvature="0"
-   style="fill:#cb2027" />
+   style="fill:#f3001d;fill-opacity:1" />
 </g>
 <g
-   id="Layer_5">
+   id="Layer_5"
+   transform="matrix(-1,0,0,-1,505.68201,458.68399)"
+   style="fill:#00b900;fill-opacity:1">
 	<path
    d="m 102.783,141.458 c 0,0 45.567,-88.579 159.698,-86.024 0,0 -38.753,13.202 -48.122,70.693 0,0 -34.495,5.962 -45.567,34.92 -0.001,0 -30.663,-17.885 -66.009,-19.589 z"
    id="col-3"
    inkscape:connector-curvature="0"
-   style="fill:#243e90" />
+   style="fill:#00b900;fill-opacity:1" />
 	<path
    d="m 209.674,238.554 c 0,0 23.848,5.962 43.438,-16.182 0,0 93.264,77.081 150.328,97.947 0,0 -69.415,97.097 -165.232,80.913 -0.001,0 -34.78,-42.444 -28.534,-162.678 z"
    id="col-4"
    inkscape:connector-curvature="0"
-   style="fill:#243e90" />
+   style="fill:#00b900;fill-opacity:1" />
 </g>
 <g
-   id="Layer_6">
+   id="Layer_6"
+   transform="matrix(-1,0,0,-1,505.68201,458.68399)"
+   style="fill:#0000e1;fill-opacity:1">
 	<path
    d="m 166.525,166.018 c 0,0 -8.516,24.415 -0.567,40.314 0,0 -63.028,41.451 -61.893,114.7 0,0 -56.781,-70.977 -3.407,-174.32 0.001,0 29.527,0 65.867,19.306 z"
    id="col-5"
    inkscape:connector-curvature="0"
-   style="fill:#f6eb13" />
+   style="fill:#0000e1;fill-opacity:1" />
 	<path
    d="m 269.868,160.336 c 0,0 98.233,-42.017 143.657,-0.567 0,0 41.452,78.358 -7.38,156.149 0,0 -67,-28.959 -149.334,-97.096 0.001,0 22.708,-19.876 13.057,-58.486 z"
    id="col-6"
    inkscape:connector-curvature="0"
-   style="fill:#f6eb13" />
+   style="fill:#0000e1;fill-opacity:1" />
 </g>
 </svg>
