@@ -51,10 +51,10 @@ define(
                 
                 q = ((q/3)/255)*100;
                 
-                if(q <= 10){
+                if(q <= 20){
                     trueCount++;
                 }
-
+                console.log(q);
             }
             
             return (trueCount == count);
