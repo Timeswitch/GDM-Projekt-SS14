@@ -92,7 +92,7 @@ define(
                             $('.info').remove();
                             info = $('<div id="info-'+element.attr('id')+'" class="color info" style="position:absolute; background-color:'+self.image.colorsAssoc[element.attr('id')].original+';"></div>');
                         
-                            var offset = $('#' + element.attr('id')).offset();
+                            var offset = self.$canvas.offset();//$('#' + element.attr('id')).offset();
                             var box = element.getBBox();
 
                             offset.top;// += box.height;
@@ -100,6 +100,15 @@ define(
 
                             info.css('top', offset.top + 'px');
                             info.css('left', offset.left + 'px');
+                            
+                            info.mouseleave(function(event){
+                                var el = document.elementFromPoint(event.pageX, event.pageY);
+                                if(el === null || (el.getAttribute('id') !== element.attr('id'))){
+
+                                        info.remove();
+
+                                }
+                            });
 
                             $('body').append(info);
                         }
