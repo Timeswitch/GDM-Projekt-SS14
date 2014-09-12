@@ -92,6 +92,7 @@ define(
                 
                 function finished(){
                     enableClick();
+                    self.engine.loadScene('screens/DudeGame.htm');
                 }
                 
                 function onAllLoaded() {
