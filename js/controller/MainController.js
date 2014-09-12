@@ -61,7 +61,7 @@ define(
                             width: "100%",
                             height: "100%"
                         });
-                        console.log(ball);
+                        ball.select("#ballGruppe").transform("s0.25t300,1450");
                     }
 
                     console.log(fileName, ' fragment loaded');
@@ -83,6 +83,10 @@ define(
                         schaukel.click(function() {
                             self.engine.loadScene('screens/MixGame.htm', function() {
                             }, {image: 'schaukel.svg'})
+                        });
+                        ball.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'Ball.svg'})
                         });
                 }
                 
@@ -115,6 +119,10 @@ define(
 
                         for (var i = 1; i < 17; i++) {
                             schaukel.select("#col-" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
+                        }
+                        
+                        for (var i = 1; i < 7; i++) {
+                            ball.select("#col-" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
                         }
                         
                         schaukel.select("#col-17").animate({fill: "#fff"}, 9000, function(){
@@ -161,6 +169,18 @@ define(
                         
                         img = self.engine.loadImage('rutsche.svg');
                         Image.each(rutsche,function(index,element){
+                            var fill = '#ffffff';
+                            if(img.colors.length > 0){
+                                fill = img.colorsAssoc[index].current;
+                            }
+
+                            element.attr({
+                                'fill': fill
+                            });
+                        });
+                        
+                        img = self.engine.loadImage('Ball.svg');
+                        Image.each(ball,function(index,element){
                             var fill = '#ffffff';
                             if(img.colors.length > 0){
                                 fill = img.colorsAssoc[index].current;

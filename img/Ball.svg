@@ -43,6 +43,7 @@
    inkscape:window-y="226"
    inkscape:window-maximized="0"
    inkscape:current-layer="svg3221" />
+   <g id="ballGruppe">
 <g
    id="Layer_2"
    transform="matrix(-1,0,0,-1,505.68201,458.68399)">
@@ -116,5 +117,6 @@
    id="col-6"
    inkscape:connector-curvature="0"
    style="fill:#0000e1;fill-opacity:1" />
+</g>
 </g>
 </svg>
