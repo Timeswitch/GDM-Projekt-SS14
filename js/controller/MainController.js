@@ -89,6 +89,56 @@ define(
                         schaukel.select("#col-17").animate({fill: "#fff"}, 9000, mina.linear);
                         
                     } else {
+                        
+                        var img = self.engine.loadImage('sandkasten.svg');
+                        Image.each(sandkasten,function(index,element){
+                            var fill = '#ffffff';
+                            if(img.colors.length > 0){
+                                fill = img.colorsAssoc[index].current;
+                            }
+
+                            element.attr({
+                                'fill': fill
+                            });
+                        });
+                        
+                        img = self.engine.loadImage('tor.svg');
+                        Image.each(tor,function(index,element){
+                            var fill = '#ffffff';
+                            if(img.colors.length > 0){
+                                fill = img.colorsAssoc[index].current;
+                            }
+
+                            element.attr({
+                                'fill': fill
+                            });
+                        });
+                        
+                        img = self.engine.loadImage('schaukel.svg');
+                        Image.each(schaukel,function(index,element){
+                            var fill = '#ffffff';
+                            if(img.colors.length > 0){
+                                fill = img.colorsAssoc[index].current;
+                            }
+
+                            element.attr({
+                                'fill': fill
+                            });
+                        });
+                        
+                        img = self.engine.loadImage('rutsche.svg');
+                        Image.each(rutsche,function(index,element){
+                            var fill = '#ffffff';
+                            if(img.colors.length > 0){
+                                fill = img.colorsAssoc[index].current;
+                            }
+
+                            element.attr({
+                                'fill': fill
+                            });
+                        });
+                        
+                        
                         sandkasten.click(function() {
                             self.engine.loadScene('screens/MixGame.htm', function() {
                             }, {image: 'sandkasten.svg'})
