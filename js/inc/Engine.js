@@ -51,12 +51,12 @@ define(
 
                 };
 
-                this.loadScene = function(path, callback) {
+                this.loadScene = function(path, callback, params) {
                     $('body').empty();
-                    this.loadHTML(path, 'body', callback);
+                    this.loadHTML(path, 'body', callback, params);
                 };
 
-                this.loadHTML = function(path, target, callback) {
+                this.loadHTML = function(path, target, callback, params) {
                     
                     var self = this;
                     
@@ -110,6 +110,7 @@ define(
                                     if(arg.prototype.isController()){
                                         
                                         var controller = new arg(self,target);
+                                        controller.setParameters(params);
                                         controller.init();
                                     }
                                 }
@@ -144,6 +145,10 @@ define(
                 
                 this.saveImage = function(image){
                     this.storage.saveObject(image.image,image.colors);
+                };
+                
+                this.home = function(){
+                    this.loadScene('screens/start.htm');
                 };
             }
             

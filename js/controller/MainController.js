@@ -1,21 +1,20 @@
 define(
         "controller/MainController",
         ["inc/Controller",
-         "jquery",
-         "inc/ColorGame"],
+         "jquery",],
         function(Controller, $, ColorGame){
             function MainController(engine, target){
                 Controller.call(this, engine, target);
-                this.cg = new ColorGame($('#canvas'),$('#toolbar'),engine);
             }
             
             MainController.prototype = Object.create(Controller.prototype);
             MainController.prototype.constructor = MainController;
             
             MainController.prototype.init = function(){
-                
-                this.cg.init();
-                this.cg.load('Ball.svg');
+                var self = this;
+                $('body > div').click(function(){
+                    self.engine.loadScene('screens/MixGame.htm', function(){},{image: 'home.svg'});
+                });
             };
             
             return MainController;

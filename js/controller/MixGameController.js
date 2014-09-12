@@ -15,7 +15,11 @@ define(
             MixGame.prototype.init = function(){
                 
                 this.cg.init();
-                this.cg.load('Ball.svg');
+                
+                if(typeof(this.parameters.image) !== 'undefined' && this.parameters.image != null){
+                    this.cg.load(this.parameters.image);
+                }
+                
             };
             
             return MixGame;

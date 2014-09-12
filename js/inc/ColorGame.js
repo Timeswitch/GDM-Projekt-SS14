@@ -45,6 +45,9 @@ define(
                 var buttonContainer = $('<div class="command-container"></div>');
                 
                 var home = $('<div class="command" id="home-button"></div>');
+                home.click(function(){
+                    self.home();
+                });
                 
                 var reset = $('<div class="command" id="reset-button"></div>');
                 reset.click(function(){
@@ -339,6 +342,11 @@ define(
                 });
                 
                 this.engine.saveImage(this.image);
+            };
+            
+            ColorGame.prototype.home = function(){
+                this.engine.saveImage(this.image);
+                this.engine.home();
             };
 
             return ColorGame;
