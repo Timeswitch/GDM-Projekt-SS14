@@ -106,15 +106,9 @@ define(
                         if(info.length === 0){
                             $('.info').remove();
                             info = $('<div id="info-'+element.attr('id')+'" class="color info" style="position:absolute; background-color:'+self.image.colorsAssoc[element.attr('id')].original+';"></div>');
-                        
-                            var offset = self.$canvas.offset();//$('#' + element.attr('id')).offset();
-                            var box = element.getBBox();
 
-                            offset.top;// += box.height;
-                            offset.left;// += box.width;
-
-                            info.css('top', offset.top + 'px');
-                            info.css('left', offset.left + 'px');
+                            info.css('top', '0');
+                            info.css('left', '0');
                             
                             info.mouseleave(function(event){
                                 var el = document.elementFromPoint(event.pageX, event.pageY);
@@ -125,7 +119,7 @@ define(
                                 }
                             });
 
-                            $('body').append(info);
+                            $(self.$canvas).append(info);
                         }
                                 
                         
