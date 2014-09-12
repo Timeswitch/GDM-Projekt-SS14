@@ -60,6 +60,22 @@ define(
                     
                     var self = this;
                     
+                    var loaded = [];
+                    
+                    $('body').find('input[content]').each(function() {
+                        loaded.push({
+                            src: $(this).attr('value'),
+                            type: $(this).attr('content')
+                        });
+                    });
+                    
+                    for (var i = 0; i < loaded.length; i++) {
+                        if (loaded[i].type === 'text/css') {
+                            self.cm.unload('./css/'+loaded[i].src);
+                        }
+
+                    }
+                    
                     $(target).load('html/' + path, function() {
 
                         var requirements = [];
