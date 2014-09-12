@@ -64,15 +64,15 @@
    id="g4059"
    transform="translate(1120.3588,146.63397)"><path
      inkscape:connector-curvature="0"
-     id="tor1"
+     id="col-1"
      d="m -931.09507,31.590316 0,516.281254 824.71875,10.7279 0,-516.281254 -824.71875,-10.7279 z m 193.125,51.44965 c 61.84073,0.80443 111.96875,51.584514 111.96875,113.425244 0,61.84073 -50.12802,111.31669 -111.96875,110.51226 -61.84073,-0.80441 -112,-51.58491 -112,-113.42564 0,-61.84073 50.15927,-111.316274 112,-110.511864 z m 432.46875,199.406794 c 61.84073,0.80443 111.96875,51.58451 111.96875,113.42524 0,61.84073 -50.12802,111.31669 -111.96875,110.51226 -61.84073,-0.80442 -112,-51.58491 -112,-113.42564 0,-61.84073 50.15927,-111.31628 112,-110.51186 z"
      style="fill:#339200;fill-opacity:1;fill-rule:evenodd;stroke:none" /><path
      inkscape:connector-curvature="0"
-     id="tor2"
+     id="col-2"
      d="m -106.89074,42.110526 25.525005,-33.9898298 0,491.2581438 -25.672385,59.21203 z"
      style="fill:#349a00;fill-opacity:1;stroke:#000000;stroke-width:1.73315907;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /><path
      inkscape:connector-curvature="0"
-     id="tor3"
+     id="col-3"
      d="m -892.45108,7.1700005 -37.47979,23.7458925 39.36904,0.191242 781.9193,10.64581 29.644214,-32.5749025 -720.884574,-1.7849262 -0.081,-0.2231158 -1.21325,0 -90.58955,0 -0.6844,0 z"
      style="fill:#153e00;fill-opacity:1;stroke:#000000;stroke-width:2.01529884;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /><path
      id="path3968"
@@ -85,7 +85,7 @@
      style="fill:#040c00;fill-opacity:1;stroke:none"
      inkscape:connector-curvature="0" /><path
      inkscape:connector-curvature="0"
-     id="tor4"
+     id="col-4"
      d="m -930.96876,31.139945 0,516.281295 824.71875,10.75 0,-516.281295 -824.71875,-10.75 z m 27.625,15.15625 770.78125,10.03125 0,482.499995 -770.78125,-10.0312 0,-482.500045 z"
      style="fill:#256b00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /></g></g>
 

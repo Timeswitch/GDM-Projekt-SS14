@@ -1,8 +1,10 @@
 define(
         "controller/MainController",
         ["inc/Controller",
-            "jquery", ],
-        function(Controller, $, ColorGame) {
+            "jquery",
+            "inc/Image"
+        ],
+        function(Controller, $, Image) {
             function MainController(engine, target) {
                 Controller.call(this, engine, target);
             }
@@ -59,39 +61,54 @@ define(
 
                 function onAllLoaded() {
                     var firstRun = localStorage.getItem('firstrun');
-                    if(typeof(firstRun) === 'undefined' || firstRun === null){
+                    if (typeof (firstRun) === 'undefined' || firstRun === null) {
                         firstRun = true;
                     }
-                    
-                    if(firstRun === true){
-                        
+
+                    if (firstRun === true) {
+
                         console.log(firstRun);
                         firstRun = false;
-                        localStorage.setItem('firstrun',false);
+                        localStorage.setItem('firstrun', false);
                         for (var i = 1; i < 6; i++) {
-                            sandkasten.select("#fill" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
+                            sandkasten.select("#col-" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
                         }
 
                         for (var i = 1; i < 5; i++) {
-                            tor.select("#tor" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
+                            tor.select("#col-" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
                         }
 
                         for (var i = 1; i < 15; i++) {
-                            rutsche.select("#rutsche" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
+                            rutsche.select("#col-" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
                         }
 
-                        for (var i = 1; i < 18; i++) {
-                            schaukel.select("#schaukel" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
+                        for (var i = 1; i < 17; i++) {
+                            schaukel.select("#col-" + i.toString()).animate({fill: "#fff"}, 9000, mina.linear);
                         }
-                    }else{
-                        sandkasten.click(function(){self.engine.loadScene('screens/MixGame.htm',function(){},{image: 'sandkasten.svg'})});
-                        tor.click(function(){self.engine.loadScene('screens/MixGame.htm',function(){},{image: 'tor.svg'})});
-                        rutsche.click(function(){self.engine.loadScene('screens/MixGame.htm',function(){},{image: 'rutsche.svg'})});
-                        schaukel.click(function(){self.engine.loadScene('screens/MixGame.htm',function(){},{image: 'schaukel.svg'})});
+                        
+                        schaukel.select("#col-17").animate({fill: "#fff"}, 9000, mina.linear);
+                        
+                    } else {
+                        sandkasten.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'sandkasten.svg'})
+                        });
+                        tor.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'tor.svg'})
+                        });
+                        rutsche.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'rutsche.svg'})
+                        });
+                        schaukel.click(function() {
+                            self.engine.loadScene('screens/MixGame.htm', function() {
+                            }, {image: 'schaukel.svg'})
+                        });
                     }
-                    
-                    
-                    
+
+
+
 
                 }
 
@@ -99,8 +116,8 @@ define(
                 var flaeche, rutsche, tor, sandkasten, schaukel;
                 var myLoadList = ["img/flaeche.svg", "img/rutsche.svg", "img/tor.svg", "img/sandkasten.svg", "img/schaukel.svg"];
                 var myDisplayList = {"img/flaeche.svg": "flaeche", "img/rutsche.svg": "rutsche", "img/tor.svg": "tor", "img/sandkasten.svg": "sandkasten", "img/schaukel.svg": "schaukel"};
-                
-                s.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+
+                s.loadFilesDisplayOrdered(myLoadList, onAllLoaded, onEachLoaded);
             };
 
             return MainController;

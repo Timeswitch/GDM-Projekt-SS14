@@ -203,7 +203,7 @@ define(
                         
                         stop: function(event, ui){
                             var element = document.elementFromPoint(ui.offset.left, ui.offset.top);
-                            if(element !== null && element.tagName === 'path'){
+                            if(element !== null && (element.tagName === 'path' || element.tagName === 'polygon')){
                                 var id = element.getAttribute('id');
                                 if(id.substring(0,4) === "col-"){
                                     var color = ui.helper.css('background-color');
