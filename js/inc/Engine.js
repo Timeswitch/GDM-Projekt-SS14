@@ -52,7 +52,6 @@ define(
                 };
 
                 this.loadScene = function(path, callback, params) {
-                    $('body').empty();
                     this.loadHTML(path, 'body', callback, params);
                 };
 
@@ -75,6 +74,8 @@ define(
                         }
 
                     }
+                    
+                    $(target).empty();
                     
                     $(target).load('html/' + path, function() {
 
