@@ -193,9 +193,12 @@ define(
                             var element = document.elementFromPoint(ui.offset.left, ui.offset.top);
                             if(element !== null && element.tagName === 'path'){
                                 var id = element.getAttribute('id');
-                                var color = ui.helper.css('background-color');
+                                if(id.substring(0,4) === "col-"){
+                                    var color = ui.helper.css('background-color');
                                 
-                                self.mixColor(id,color);
+                                    self.mixColor(id,color);
+                                }
+                                
                             }
                             
                             self.dragging = false;
