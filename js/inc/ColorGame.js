@@ -24,6 +24,8 @@ define(
             }
 
             ColorGame.prototype.init = function() {
+                var self = this;
+                
                 var colors = Array(
                         $('<div class="color" style="background-color: #00ffff;"></div>'),
                         $('<div class="color" style="background-color: #ff00ff;"></div>'),
@@ -41,8 +43,13 @@ define(
                 this.$toolbar.append(colors);
                 
                 var buttonContainer = $('<div class="command-container"></div>');
+                
                 var home = $('<div class="command" id="home-button"></div>');
+                
                 var reset = $('<div class="command" id="reset-button"></div>');
+                reset.click(function(){
+                    self.reset();
+                });
                 
                 buttonContainer.append(home);
                 buttonContainer.append(reset);
@@ -326,6 +333,18 @@ define(
                     alert('Passt so!');
                 }
                 
+            };
+            
+            ColorGame.prototype.reset = function(){
+                var self = this;
+                Image.each(this.svg,function(index,element){
+                    self.image.colorsAssoc[index].current = '#ffffff';
+                    element.attr({
+                        fill: '#ffffff'
+                    });
+                });
+                
+                this.engine.saveImage(this.image);
             };
 
             return ColorGame;
